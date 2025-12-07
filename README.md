@@ -227,9 +227,12 @@ Generated outputs (plots + CSVs) will be saved locally.
 
 **Team Members**
 
-* Fuhan Zhang
-* Ruoqi Zhou
-* Yijia Tai
+*  Weikai Liu
+Yining Chang
+Yuming Zhou
+Yunting Su
+Yijia Tai
+
 
 **Course:** MET AD 699 – Data Mining for Business Analytics
 **Institution:** Boston University Metropolitan College
