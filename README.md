@@ -228,10 +228,10 @@ Generated outputs (plots + CSVs) will be saved locally.
 **Team Members**
 
 *  Weikai Liu
-Yining Chang
-Yuming Zhou
-Yunting Su
-Yijia Tai
+*  Yining Chang
+*  Yuming Zhou
+*  Yunting Su
+*  Yijia Tai
 
 
 **Course:** MET AD 699 – Data Mining for Business Analytics
