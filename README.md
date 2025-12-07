@@ -1,265 +1,199 @@
-# 📊 **Streaming Analytics & Predictive Modeling**
+# 🎬 Streaming Platform Analytics
 
-### *Machine Learning · Exploratory Data Analysis · Visualization*
-
-**MET AD 699 – Data Mining for Business Analytics**
+### **Machine Learning · Visualization · Behavioral Insights**
 
 ---
 
-## 🧭 **Project Overview**
+## 👥 **Team Members**
 
-This repository contains the implementation for **Task 3 (Machine Learning Model)** and **Task 4 (Visualizations & Insights)** of a streaming-platform analytics project.
-Using behavioral, contextual, and content-level features, we develop predictive models to estimate **user movie ratings**, alongside visual analytics to extract actionable business insights.
-
-The workflows reflect real-world data mining practices:
-
-* Robust data preprocessing & feature engineering
-* Baseline + advanced ML model development
-* Model performance benchmarking
-* Interpretability through feature importance
-* Executive-ready visual insights for business strategy
+* **Weikai Liu**
+* **Yining Chang**
+* **Yuming Zhou**
+* **Yunting Su**
+* **Yijia Tai**
 
 ---
 
-## 📂 **Repository Structure**
+## 📌 **Project Overview**
 
-```
-├── Task_3.ipynb                # Machine Learning pipeline (full workflow)
-├── Task_4.ipynb                # Visualization & exploratory insights
-├── content.csv                 # Input dataset (behavior + metadata)
-└── README.md                   # Project documentation
-```
+This repository contains the implementation for:
 
----
+* **Task 3:** Machine Learning Model for Movie Rating Prediction
+* **Task 4:** Data Visualizations & Business Insights
 
-## ⚙️ **Environment Setup**
-
-### Python Version
-
-> Python 3.9+
-
-### Install Required Libraries
-
-```bash
-pip install numpy pandas scikit-learn matplotlib seaborn
-```
+The goal of this project is to **predict user movie ratings and understand factors that affect user engagement and completion behaviors** on a streaming platform.
 
 ---
 
-# 🧹 **Task 3 — Machine Learning Model**
+# 🧠 **Task 3 — Machine Learning Model**
 
-## 1️⃣ Data Preprocessing
+## 🎯 Objective
 
-Key steps implemented:
+Predict user movie ratings (1–5) using:
 
-* Handling missing values
-* Removing duplicate interactions
-* Encoding categorical variables (genre, device type, age rating)
-* Rescaling features for linear models
-* 17 engineered predictors integrating:
+* Viewing behavior
+* User historical metrics
+* Movie attributes
+* Engagement indicators
 
-  * user engagement behavior
-  * content metadata
-  * contextual viewing patterns
-
-Example preprocessing block:
-
-```python
-df = pd.read_csv("content.csv")
-df.dropna(inplace=True)
-df = df.drop_duplicates(subset="rating_id")
-```
+📄 Detailed results cited from: Task3.docx 
 
 ---
 
-## 2️⃣ Feature Engineering
+## 🔧 **Models Implemented**
 
-The model uses a robust behavioral feature set, including:
-
-| Feature Category        | Examples                                      |
-| ----------------------- | --------------------------------------------- |
-| **User Engagement**     | watch_minutes, watch_ratio, completion_rate   |
-| **User History**        | user_avg_watch_minutes, user_genre_pref_score |
-| **Content Metadata**    | release_year, duration_minutes, genre_encoded |
-| **Contextual Features** | hour_of_day, day_of_week                      |
-
-These features support high-quality predictive modeling aligned with industry best practices.
-
----
-
-## 3️⃣ Model Development
-
-### ✔ Baseline Model
-
-* **Linear Regression**
-
-### ✔ Advanced Models
-
+* **Linear Regression (baseline)**
 * **Random Forest Regressor**
 * **Gradient Boosting Regressor**
 
-All models are trained using the same train-test split for fair evaluation.
+---
+
+## 📊 **Model Performance Summary**
+
+| Model             | RMSE      | MAE       | R²     |
+| ----------------- | --------- | --------- | ------ |
+| Linear Regression | **0.890** | **0.744** | -0.001 |
+| Gradient Boosting | 0.897     | 0.744     | -0.018 |
+| Random Forest     | 0.908     | 0.746     | -0.042 |
+
+📌 **Insight:**
+R² ≈ 0 indicates movie ratings are **highly subjective** and difficult to predict solely from behavior and metadata.
 
 ---
 
-## 4️⃣ Evaluation Metrics
+## ⭐ **Key Factors Influencing Predictions**
 
-We compute standard regression metrics:
+Feature importance ranking shows engagement metrics dominate:
 
-* **RMSE** — penalizes large errors
-* **MAE** — average prediction deviation
-* **R² Score** — variance explained
+* User Average Watch Minutes — **9.1%**
+* Watch Minutes — **9.1%**
+* User Completion Rate — **8.9%**
+* Watch Ratio — **8.8%**
+* Movie Completion Rate — **8.0%**
 
-Results are saved into:
-
-```
-model_comparison.csv
-```
-
-Example format:
-
-| Model             | RMSE | MAE  | R²   |
-| ----------------- | ---- | ---- | ---- |
-| Linear Regression | 0.XX | 0.XX | 0.XX |
-| Random Forest     | 0.XX | 0.XX | 0.XX |
-| Gradient Boosting | 0.XX | 0.XX | 0.XX |
-
-The best-performing model is chosen based on **RMSE minimization**.
+📌 Device type, age rating, genre = low influence.
+📌 “Completed or not” flag is less predictive than **continuous watch_ratio**.
 
 ---
 
-## 5️⃣ Feature Importance Analysis
+## 📝 **Task 3 Conclusion**
 
-Feature importance from Random Forest is exported as:
-
-```
-feature_importance.csv
-feature_importance.png
-```
-
-This ranking highlights **what drives rating predictions**, typically:
-
-* user engagement duration
-* completion ratio
-* historical viewing affinity
-* movie metadata (secondary influence)
-
-These insights guide recommendation and content strategy decisions.
+* User ratings are influenced more by *personal preference* than behavioral metrics.
+* Engagement level (how long users watch) is a strong predictor of rating behavior.
+* Platforms should focus on improving viewing engagement to influence satisfaction.
 
 ---
 
 # 📊 **Task 4 — Visualizations & Insights**
 
-Task 4 generates a suite of at least **six analytical plots** designed for executive-level reporting.
+📄 Based on: Task4.docx 
 
-### 📈 1. Time Series Trend
-
-Longitudinal patterns in viewing behavior.
-
-
-
-### 📊 2. Distribution Analysis
-
-Watch minutes, rating distribution, engagement patterns.
-
-
-
-
-### 🧩 3. Category Comparison (Bar Charts)
-
-Top genres, device usage frequency, peak viewing hours.
-
-
-
-
-### 🔥 4. Correlation Heatmap
-
-Identifying multicollinearity and feature clusters.
-
-
-
-
-### 🧠 5. Machine Learning Interpretability
-
-* Feature importance visualization
-* Error distributions
-* Model comparison plots
-### Top 10 Feature Importances for Predicting Completion
-
-
-
-### 🎬 6. Domain-Specific Visualization
-
-Illustrates streaming-specific phenomena such as drop-off curves or binge-session patterns.
-### Average Completion Rate by Device Type
-
-
+Task 4 includes **six analytical visualizations** that explain user behavior patterns.
 
 ---
 
-# 💡 **Key Business Insights**
+## 📈 **1. Average Watch Minutes by Hour of Day**
 
-From the analysis:
+* Viewing peaks at **1–2 AM**, dips around **10 AM–12 PM**
+* Engagement rises again after **3 PM**
 
-### 1️⃣ User engagement behavior is the strongest driver of rating outcomes
+📌 *Business implication:*
+Schedule recommendations or promotions during high-engagement windows.
 
-Features like *watch_minutes* and *completion_rate* outperform all content metadata.
+---
 
-### 2️⃣ Viewing context (hour, device) exhibits moderate predictive influence
+## 🎭 **2. Average Watch Ratio by Genre**
 
-Recommendation engines may adjust ranking by context-aware personalization.
+* All genres show high watch ratios (~0.70–0.72)
+* Genre has **minimal impact** on completion
 
-### 3️⃣ Genre metadata alone is not highly predictive
+📌 *Implication:* Recommendation should be **user-preference–based**, not genre-based.
 
-Behavior > metadata — consistent with commercial recommender system findings.
+---
 
-### 4️⃣ Advanced models (RF/GB) significantly outperform linear models
+## 🧩 **3. Distribution of Watch Ratio**
 
-Tree-based models capture nonlinear user behaviors and interaction effects.
+* Users show diverse viewing behaviors
+* Majority watch **50%–90%** of films
+* Watch ratio >1.0 appears due to rewinding or replay
+
+📌 *Implication:*
+Segment users into high-, medium-, and low-engagement groups for personalization.
+
+---
+
+## 🔥 **4. Correlation Matrix of Numeric Features**
+
+Key findings:
+
+* Strong correlations among: watch_minutes, watch_ratio, completed_flag
+* Moderate correlations among user behavior aggregates
+* Movie metadata & time variables weakly correlated with engagement
+* target_rating correlates weakly with behavioral features
+
+📌 *Implication:*
+Engagement metrics are reliable predictors; metadata is less impactful.
+
+---
+
+## 🧠 **5. Feature Importances for Predicting Completion**
+
+* **watch_ratio dominates massively**
+* All other features contribute marginally
+
+📌 *Implication:*
+Early watch ratio can be used to **detect dropout risk** in real time.
+
+---
+
+## 📱 **6. Completion Rate by Device Type**
+
+Completion rates (highest → lowest):
+
+1. **Mobile**
+2. **TV**
+3. **Web**
+
+📌 *Implication:*
+Mobile-focused content strategy may increase completion rates.
+
+---
+
+# 🚀 **Technical Stack**
+
+* Python
+* Pandas / NumPy
+* Scikit-Learn
+* Matplotlib / Seaborn
+* Jupyter Notebook
 
 ---
 
 # ▶️ **How to Run**
 
-### Run Machine Learning Workflow
+### Run ML model (Task 3)
 
 ```bash
 jupyter notebook Task_3.ipynb
 ```
 
-### Run Visual Analytics
+### Run visualizations (Task 4)
 
 ```bash
 jupyter notebook Task_4.ipynb
 ```
 
-Generated outputs (plots + CSVs) will be saved locally.
+Outputs will be generated and saved locally.
 
 ---
 
-# 👥 **Authors**
+# 🧩 **Key Business Takeaways**
 
-**Team Members**
-
-*  Weikai Liu
-*  Yining Chang
-*  Yuming Zhou
-*  Yunting Su
-*  Yijia Tai
-
-
-**Course:** MET AD 699 – Data Mining for Business Analytics
-**Institution:** Boston University Metropolitan College
+* Engagement metrics (watch time, ratio) matter far more than content metadata.
+* User ratings are difficult to predict due to subjective preference.
+* Early behavior signals (watch_ratio) can guide **real-time interventions**.
+* Device usage influences completion likelihood—optimize UX accordingly.
 
 ---
 
-# 🏁 **Next Steps (Optional Extensions)**
-
-Future enhancements could include:
-
-* Hyperparameter tuning (GridSearch / RandomSearch)
-* XGBoost or LightGBM modeling
-* Deployment via Flask / FastAPI
-* Real-time streaming analytics with Spark / Kafka
-* Production-grade recommendation engine
 
