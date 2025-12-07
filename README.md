@@ -27,9 +27,6 @@ The workflows reflect real-world data mining practices:
 ├── Task_3.ipynb                # Machine Learning pipeline (full workflow)
 ├── Task_4.ipynb                # Visualization & exploratory insights
 ├── content.csv                 # Input dataset (behavior + metadata)
-├── model_comparison.csv        # Performance metrics across models
-├── feature_importance.csv      # Ranked feature importance table
-├── feature_importance.png      # Feature importance bar plot
 └── README.md                   # Project documentation
 ```
 
@@ -158,29 +155,28 @@ Task 4 generates a suite of at least **six analytical plots** designed for execu
 ### 📈 1. Time Series Trend
 
 Longitudinal patterns in viewing behavior.
-### Average Watch Minutes by Hour of Day
-![Average Watch Minutes](/mnt/data/a4f9da65-7de2-4b5a-8eab-9f0c71e54e32.png)
+
 
 
 ### 📊 2. Distribution Analysis
 
 Watch minutes, rating distribution, engagement patterns.
-### Average Watch Ratio by Genre
-![Average Watch Ratio](/mnt/data/99841222-dc31-424f-a7f7-f32277b292e2.png)
+
+
 
 
 ### 🧩 3. Category Comparison (Bar Charts)
 
 Top genres, device usage frequency, peak viewing hours.
-### Distribution of Watch Ratio
-![Watch Ratio Distribution](/mnt/data/ef15c4e5-3bd6-4c9e-99ea-ab090324ddbe.png)
+
+
 
 
 ### 🔥 4. Correlation Heatmap
 
 Identifying multicollinearity and feature clusters.
-### Correlation Matrix of Numeric Features
-![Correlation Matrix](/mnt/data/b5ca83a7-d853-4b65-9624-fd54f941c2ef.png)
+
+
 
 
 ### 🧠 5. Machine Learning Interpretability
@@ -189,14 +185,14 @@ Identifying multicollinearity and feature clusters.
 * Error distributions
 * Model comparison plots
 ### Top 10 Feature Importances for Predicting Completion
-![Feature Importances](/mnt/data/a18d7e4e-c742-48a1-b83d-fba8c7f00e22.png)
+
 
 
 ### 🎬 6. Domain-Specific Visualization
 
 Illustrates streaming-specific phenomena such as drop-off curves or binge-session patterns.
 ### Average Completion Rate by Device Type
-![Completion Rate by Device](/mnt/data/ca4a9ad0-f39c-4abe-9900-5b4ff6c9859a.png)
+
 
 
 ---
